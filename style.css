@@ -1,0 +1,130 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: #262a2f;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.container{
+    width: 25rem;
+    padding: 1.2rem 1.8rem;
+    background-color: #000;
+   
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    position: relative;
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.container::after,.container::before{
+    --angle:0deg;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: conic-gradient(from var(--angle), transparent , #4CC9FE,#f81205);
+    border-radius: 10px;
+    top: -1%;
+    left: -0.75%;
+    z-index:-1 ;
+    padding: 3px;
+    animation: spin 3s linear infinite;
+    
+}
+.container::before{
+    filter: blur(1rem);
+    opacity: 0.5;
+   
+}
+.container p{
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.container input{
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-top: 0.8rem;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    text-align: left;
+    border: 1px solid #4CC9FE;
+    border-radius: 4px;
+    &:focus{
+        border: 2px solid #ceec07;
+        outline: 0;
+    }
+}
+.container button{
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    background-color: #0a7adb;
+    outline: 0;
+    border: 0;
+    color: #fff;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 10px 10px  rgba(0, 0, 0, 0.2);
+
+
+}
+.container .qr-img{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+}
+#mood-set{
+    position: absolute;
+    top: 0.8rem;
+    right: 1.4rem;
+    padding: 0.5rem;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+#mood-set button{
+    width: 100%;
+    
+}
+
+@keyframes spin{
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
+.bgc{
+    background-color: #fff;
+    color: black;
+}
+.icon-1{
+    display: none;
+}
+.show{
+    display: initial;
+}
+.hide{
+    display: none;
+
+}
